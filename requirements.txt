@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic
+python-multipart
+google-cloud-vision
+python-dotenv
+Pillow
+opencv-python-headless

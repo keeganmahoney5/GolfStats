@@ -1,0 +1,70 @@
+# Deploy share site to GitHub Pages.
+# Prerequisite: Export data locally (run backend, then npm run export from frontend/)
+# and commit frontend/public/share-data.json before pushing.
+
+name: Deploy Share Site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Check share-data.json exists
+        run: |
+          if [ ! -f frontend/public/share-data.json ]; then
+            echo "::error::frontend/public/share-data.json not found. Run the backend, then 'npm run export' from frontend/, and commit the file."
+            exit 1
+          fi
+
+      - name: Build share site
+        working-directory: frontend
+        env:
+          VITE_USE_STATIC_DATA: "true"
+          VITE_BASE_PATH: "/${{ github.event.repository.name }}/"
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend/dist
+
+  deploy-pages:
+    needs: deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

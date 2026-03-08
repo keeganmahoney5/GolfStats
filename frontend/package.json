@@ -1,0 +1,27 @@
+{
+  "name": "golf-sim-stats-frontend",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:share": "VITE_USE_STATIC_DATA=true VITE_BASE_PATH=/GolfStats/ vite build",
+    "export": "bash ../scripts/export_share_data.sh",
+    "preview": "vite preview",
+    "lint": "echo \"add linting later\""
+  },
+  "dependencies": {
+    "exifr": "^7.1.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
+    "recharts": "^3.7.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.3",
+    "@vitejs/plugin-react-swc": "^3.7.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.0"
+  }
+}

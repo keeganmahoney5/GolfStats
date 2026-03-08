@@ -1,0 +1,44 @@
+{
+  "rounds": [],
+  "roundDetails": {},
+  "lowestRoundScores": [],
+  "singlePlayerLeaderboards": {
+    "lowest_9_hole_round_scores": [],
+    "lowest_18_hole_round_scores": [],
+    "most_9_hole_round_wins": [],
+    "most_18_hole_round_wins": [],
+    "worst_holes": [],
+    "double_bogey_plus_per_9": [],
+    "bogeys_per_9": [],
+    "pars_per_9": [],
+    "birdies_per_9": [],
+    "eagles_per_9": []
+  },
+  "performanceTrends": {
+    "score_trend_9": [],
+    "score_trend_18": [],
+    "par_or_better_trend_9": [],
+    "par_or_better_trend_18": []
+  },
+  "teamLeaderboards": {
+    "lowest_scores_9": [],
+    "lowest_scores_18": [],
+    "lowest_9_hole_round_scores": [],
+    "lowest_18_hole_round_scores": [],
+    "most_9_hole_round_wins": [],
+    "most_18_hole_round_wins": [],
+    "worst_holes": [],
+    "double_bogey_plus_per_9": [],
+    "bogeys_per_9": [],
+    "pars_per_9": [],
+    "birdies_per_9": [],
+    "eagles_per_9": []
+  },
+  "holeDifficulty": {
+    "player_score_heatmap": [],
+    "predicted_score_by_stroke_index": []
+  },
+  "playerRatings": {
+    "players": []
+  }
+}
