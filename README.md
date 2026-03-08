@@ -1,5 +1,7 @@
 # Golf Sim Stats
 
+> This app (including the read-me doc) was made with like 99% AI. It will most likely only work with full swing golf simulator scorecards and statistics. This is only public so i can share the analytics without deploying the app
+
 Upload scorecard images from your golf simulator. The app extracts scores, stores rounds, and shows analytics.
 
 ## How it works (simple)
